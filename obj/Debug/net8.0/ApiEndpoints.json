@@ -1,15 +1,15 @@
 [
   {
-    "ContainingType": "WebApplication1.Controllers.UserController",
-    "Method": "GetUsers",
-    "RelativePath": "api/User",
+    "ContainingType": "WebApplication1.Controllers.LibroController",
+    "Method": "GetLibro",
+    "RelativePath": "api/Libro",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[WebApplication1.Models.User, WebApplication1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[WebApplication1.Models.Libro, WebApplication1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -20,16 +20,16 @@
     ]
   },
   {
-    "ContainingType": "WebApplication1.Controllers.UserController",
-    "Method": "Post",
-    "RelativePath": "api/User",
+    "ContainingType": "WebApplication1.Controllers.LibroController",
+    "Method": "addLibro",
+    "RelativePath": "api/Libro",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "user",
-        "Type": "WebApplication1.Models.User",
+        "Name": "libro",
+        "Type": "WebApplication1.Models.Libro",
         "IsRequired": true
       }
     ],
@@ -46,9 +46,9 @@
     ]
   },
   {
-    "ContainingType": "WebApplication1.Controllers.UserController",
-    "Method": "GetUser",
-    "RelativePath": "api/User/{id}",
+    "ContainingType": "WebApplication1.Controllers.LibroController",
+    "Method": "GetLibro",
+    "RelativePath": "api/Libro/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -62,36 +62,40 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApplication1.Controllers.UserController",
-    "Method": "Put",
-    "RelativePath": "api/User/{id}",
+    "ContainingType": "WebApplication1.Controllers.LibroController",
+    "Method": "updateBook",
+    "RelativePath": "api/Libro/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
-        "Type": "System.Int32",
+        "Name": "modBook",
+        "Type": "WebApplication1.Models.Libro",
         "IsRequired": true
       },
       {
-        "Name": "value",
-        "Type": "System.String",
+        "Name": "id",
+        "Type": "",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Void",
-        "MediaTypes": [],
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "StatusCode": 200
       }
     ]
   },
   {
-    "ContainingType": "WebApplication1.Controllers.UserController",
-    "Method": "Delete",
-    "RelativePath": "api/User/{id}",
+    "ContainingType": "WebApplication1.Controllers.LibroController",
+    "Method": "DeleteLibro",
+    "RelativePath": "api/Libro/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -99,6 +103,161 @@
       {
         "Name": "id",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.UsuarioController",
+    "Method": "GetUsuario",
+    "RelativePath": "Usuario/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.UsuarioController",
+    "Method": "GetUsuarios",
+    "RelativePath": "Usuario/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[WebApplication1.Models.Usuario, WebApplication1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.UsuarioController",
+    "Method": "addUsuario",
+    "RelativePath": "Usuario/crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "usuario",
+        "Type": "WebApplication1.Models.Usuario",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.UsuarioController",
+    "Method": "DeleteUsuario",
+    "RelativePath": "Usuario/delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.UsuarioController",
+    "Method": "PrestarMaterial",
+    "RelativePath": "Usuario/prestar{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "usuario",
+        "Type": "WebApplication1.Models.Usuario",
+        "IsRequired": true
+      },
+      {
+        "Name": "libroId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.UsuarioController",
+    "Method": "updateUsuario",
+    "RelativePath": "Usuario/update/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "modUsuario",
+        "Type": "WebApplication1.Models.Usuario",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "",
         "IsRequired": true
       }
     ],
