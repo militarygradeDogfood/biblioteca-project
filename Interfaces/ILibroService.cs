@@ -6,7 +6,7 @@ namespace WebApplication1.Interfaces
     {
         List<Libro>? GetAllLibros();
         Libro? FindLibroById(int id);
-        string SaveLibro(Libro libro);
+        void SaveLibro(Libro libro);
         string DeleteLibro(int id);
         string UpdateLibro(Libro libro);
     }

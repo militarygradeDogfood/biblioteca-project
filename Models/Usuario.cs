@@ -25,6 +25,9 @@ namespace WebApplication1.Models
             this.librosPrestados = new List<Libro>();
         }
 
+        // dapper muchos libros por user
+        public ICollection<Libro> UsuarioLibros { get; set; }
+
         public Usuario()
         {
         }

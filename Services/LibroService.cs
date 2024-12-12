@@ -1,4 +1,5 @@
-﻿using WebApplication1.Interfaces;
+﻿using System.Data;
+using WebApplication1.Interfaces;
 using WebApplication1.Interfaces.Repository;
 using WebApplication1.Models;
 using WebApplication1.Repository;
@@ -7,12 +8,14 @@ namespace WebApplication1.Services
 {
     public class LibroService : ILibroService
     {
-
+        private readonly DapperContext _context;
+        private readonly IDbConnection _connectionString;
         private readonly LibroRepository libroRepository;
 
-        public LibroService()
+        public LibroService(DapperContext context)
         {
-
+            this._context = context;
+            _connectionString = context.CreateConnection();
             this.libroRepository = new LibroRepository();
         }
 
@@ -28,12 +31,13 @@ namespace WebApplication1.Services
 
         public List<Libro> GetAllLibros()
         {
+            Console.WriteLine("Getting Libros");
             return libroRepository.GetAllLibros();
         }
 
-        public string SaveLibro(Libro libro)
+        public void SaveLibro(Libro libro)
         {
-            return libroRepository.SaveLibro(libro);
+            libroRepository.InsertLibro(libro);
         }
 
         public string UpdateLibro(Libro libro)

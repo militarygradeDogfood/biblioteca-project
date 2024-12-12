@@ -17,6 +17,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<ILibroService, LibroService>();
@@ -25,6 +26,7 @@ builder.Services.AddScoped<IEstudianteService, EstudianteService>();
 builder.Services.AddScoped<IProfesorService, ProfesorService>();
 var configValue = builder.Configuration.GetValue<string>("Connection");
 
+builder.Services.AddSingleton<DapperContext>();
 
 var logFilePath = Path.Combine(
     AppDomain.CurrentDomain.BaseDirectory,
@@ -55,6 +57,9 @@ app.MapControllers();
 
 app.Run();
 
+
+//DESKTOP-PGOELMC\MSSQLSERVER02
+/*
 using (var connection = new SqlConnection(configValue))
 {
     var sql = "INSERT INTO Libro(autor, titulo, estado, isbn) VALUES (@autor, @titulo, @estado, @isbn)";
@@ -71,4 +76,22 @@ using (var connection = new SqlConnection(configValue))
 
     var insertedLibro = connection.Query<Libro>("SELECT * FROM Libro").ToList();
 }
+*/
+void Insert() {
+    using (var connection = new SqlConnection(configValue))
+    {
+        var sql = "INSERT INTO Libro(autor, titulo, estado, isbn) VALUES (@autor, @titulo, @estado, @isbn)";
 
+        var libroTest = new
+        {
+            titulo = "JRR Tolkien",
+            autor = "El Señor de los Anillos: La Comunidad del Anillo",
+            estado = 0,
+            isbn = "ASDF1234"
+        };
+
+        var rowsAffected1 = connection.Execute(sql, libroTest);
+
+        var insertedLibro = connection.Query<Libro>("SELECT * FROM Libro").ToList();
+    }
+}
