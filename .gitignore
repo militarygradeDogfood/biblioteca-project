@@ -1,0 +1,16 @@
+# Ignorar la carpeta .vs que Visual Studio genera
+.vs/
+
+# Ignorar archivos específicos de Visual Studio
+.vsconfig
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Ignorar archivos de compilación y temporales
+bin/
+obj/
+
+# Ignorar archivos de configuración específicos de IDE
+*.userprefs
